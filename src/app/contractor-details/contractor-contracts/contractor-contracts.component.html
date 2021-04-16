@@ -1,0 +1,25 @@
+<form #form="ngForm" autocomplete="off" (submit)=onSubmit(form)>
+    <div class="form-group">
+        <input type="number" hidden class="form-control" placeholder="Id" name="id" #id="ngModel"[(ngModel)]="contracts.id">
+        <label style="font-weight: bold;">First Contractor:</label>
+        <select class="form-control" name="contractor1Id" #contractor1Id="ngModel"[(ngModel)]="contracts.contractor1Id" required>
+            <option [selected]="" value="">Select...</option>
+            <option *ngFor="let item of contactorservice.list" value={{item.id}}>
+                {{item.name}}
+              </option>
+        </select>
+        <input type="text" hidden class="form-control" name="contractorOneName" #contractorOneName="ngModel"[(ngModel)]="contracts.contractorOneName">
+        <label style="font-weight: bold;">Second Contractor:</label>
+        <select class="form-control" name="contractor2Id" #contractor2Id="ngModel"[(ngModel)]="contracts.contractor2Id" required>
+            <option [selected]="" value="">Select...</option>
+            <option *ngFor="let item of contactorservice.list" value={{item.id}}>
+                {{item.name}}
+              </option>
+        </select>
+        <input type="text" hidden class="form-control" name="contractorTwoName" #contractorTwoName="ngModel"[(ngModel)]="contracts.contractorTwoName">
+    </div>
+    <hr>
+    <div class="form-group">
+        <button class="btn btn-success btn-sm btn-block" [disabled]="form.invalid" type="submit">Submit</button>
+    </div>
+</form>

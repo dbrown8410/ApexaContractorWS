@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th hidden>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone Number</th>
+            <th>Type</th>
+            <th>Health Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of service.list">
+            <td hidden>{{row.id}}</td>
+            <td>{{row.name}}</td>
+            <td>{{row.address}}</td>
+            <td>{{row.phoneNumber}}</td>
+            <td>{{row.type}}</td>
+            <td>{{row.healthStatus}}</td>
+        </tr>
+    </tbody>
+</table>

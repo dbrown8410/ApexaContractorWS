@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th hidden>Id</th>
+            <th>First Contractor</th>
+            <th>Second Contractor</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of contractsservice.contracts">
+            <td hidden>{{row.id}}</td>
+            <td>{{row.contractorOneName}}</td>
+            <td>{{row.contractorTwoName}}</td>
+            <td>
+                <button (click)="removeContract(row.id)" class="btn btn-sm btn-danger">Delete</button>
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
