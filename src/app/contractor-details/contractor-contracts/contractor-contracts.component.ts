@@ -68,7 +68,11 @@ export class ContractorContractsComponent implements OnInit {
     this.contractsservice.getShortestChain(id1, id2);
     var msgInfo = this.contractsservice.contractChain;
     if(msgInfo != undefined){
-      alert(msgInfo.chain);
+      var msg = msgInfo.chain   
+      if(msg != ''){           
+        alert(msg);
+        this.reloadPage();
+      }
     }
   }
 }
