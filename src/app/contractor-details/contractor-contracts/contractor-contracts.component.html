@@ -21,5 +21,7 @@
     <hr>
     <div class="form-group">
         <button class="btn btn-success btn-sm btn-block" [disabled]="form.invalid" type="submit">Submit</button>
+        &nbsp;&nbsp;
+        <button id="btnChain" class="btn btn-primary btn-sm btn-block p-1" (click)="checkContractChain()" [disabled]="form.invalid" type="button">Find Chain</button>
     </div>
 </form>

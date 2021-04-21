@@ -40,9 +40,7 @@ export class ContractorDetailComponent implements OnInit {
   onSubmit(form:NgForm){
     this.service.postContractorDetail(form.value).subscribe(
       res => {
-        this.reloadPage();
-        
-        alert("Successfully Saved");
+        this.reloadPage();         
       },
       err => {
         alert("Error Found When Trying to Save");

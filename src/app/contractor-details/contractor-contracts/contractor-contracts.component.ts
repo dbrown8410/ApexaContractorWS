@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class ContractorContractsComponent implements OnInit {
   contracts;
   constructor(private contractsservice:ContractorContractsService, public contactorservice:ContractorDetailService) { 
-    this.contracts = contractsservice.formData;
+    this.contracts = contractsservice.formData;    
   }
 
   ngOnInit(): void {    
@@ -33,7 +33,7 @@ export class ContractorContractsComponent implements OnInit {
       contractor2Id:'',
       contractorTwoId:0,
       contractorTwoName:''
-    };
+    };    
   }
 
   onSubmit(form:NgForm){
@@ -58,5 +58,17 @@ export class ContractorContractsComponent implements OnInit {
 
   reloadPage() {
     window.location.reload();
+  }
+
+  checkContractChain(){
+    var data = this.contracts;
+    var id1 = parseInt(data.contractor1Id);
+    var id2 = parseInt(data.contractor2Id);
+
+    this.contractsservice.getShortestChain(id1, id2);
+    var msgInfo = this.contractsservice.contractChain;
+    if(msgInfo != undefined){
+      alert(msgInfo.chain);
+    }
   }
 }

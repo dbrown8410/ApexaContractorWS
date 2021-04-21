@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ContractingChain } from './contracting-chain.model';
 import { ContractorContracts } from './contractor-contracts.model';
 
 @Injectable({
@@ -7,9 +8,11 @@ import { ContractorContracts } from './contractor-contracts.model';
 })
 export class ContractorContractsService {
   formData: ContractorContracts;
+  
 
   private readonly rootUrl = 'http://localhost:5000/api/contractor';
   contracts : ContractorContracts[];
+  contractChain : ContractingChain;
 
   constructor(private http:HttpClient) { 
   }
@@ -18,6 +21,12 @@ export class ContractorContractsService {
     this.http.get(this.rootUrl+'/contractscontractslist')
     .toPromise()
     .then(res => this.contracts = res as ContractorContracts[])
+  }
+
+  getShortestChain(id1, id2){
+    this.http.get(this.rootUrl+'/shortestchain/'+id1+"/"+id2)
+    .toPromise()
+    .then(res => this.contractChain = res as ContractingChain)
   }
 
   postContractDetail(formData:ContractorContracts){
